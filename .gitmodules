@@ -1,0 +1,3 @@
+[submodule "thirdparty/miniroscpp"]
+	path = thirdparty/miniroscpp
+	url = git@github.com:dkargin/miniroscpp

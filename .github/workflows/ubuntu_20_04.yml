@@ -1,0 +1,23 @@
+name: Ubuntu 20.04 CI
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os_distro: [[ubuntu-20.04, noetic]]
+    runs-on: ${{ matrix.os_distro[0] }}
+    env:
+      # ROS_CI_DESKTOP: "`lsb_release -cs`"  # e.g. [trusty|xenial|...]
+      # ROS_DISTRO: ${{ matrix.os_distro[1] }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
